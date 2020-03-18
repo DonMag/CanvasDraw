@@ -7,6 +7,8 @@
 //
 
 #import "ViewController.h"
+#import "TransformScaleViewController.h"
+#import "TranslateCoordsViewController.h"
 
 @interface ViewController ()
 
@@ -19,5 +21,14 @@
 	// Do any additional setup after loading the view.
 }
 
+- (IBAction)tranformScaleTapped:(id)sender {
+	TransformScaleViewController *vc = [TransformScaleViewController new];
+	[self.navigationController pushViewController:vc animated:YES];
+}
+
+- (IBAction)translateCoordsTapped:(id)sender {
+	TranslateCoordsViewController *vc = [TranslateCoordsViewController new];
+	[self.navigationController pushViewController:vc animated:YES];
+}
 
 @end

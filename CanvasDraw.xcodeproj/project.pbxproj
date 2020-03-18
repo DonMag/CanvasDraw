@@ -14,6 +14,10 @@
 		FC552F322422510500FAFF93 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FC552F312422510500FAFF93 /* Assets.xcassets */; };
 		FC552F352422510500FAFF93 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FC552F332422510500FAFF93 /* LaunchScreen.storyboard */; };
 		FC552F382422510500FAFF93 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = FC552F372422510500FAFF93 /* main.m */; };
+		FC552F402422526200FAFF93 /* TransformScaleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FC552F3F2422526200FAFF93 /* TransformScaleViewController.m */; };
+		FC552F432422527400FAFF93 /* TranslateCoordsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FC552F422422527400FAFF93 /* TranslateCoordsViewController.m */; };
+		FC552F46242252AF00FAFF93 /* CanvasDemoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FC552F45242252AF00FAFF93 /* CanvasDemoViewController.m */; };
+		FC552F49242252CE00FAFF93 /* CanvasView.m in Sources */ = {isa = PBXBuildFile; fileRef = FC552F47242252CE00FAFF93 /* CanvasView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -29,6 +33,15 @@
 		FC552F342422510500FAFF93 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		FC552F362422510500FAFF93 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FC552F372422510500FAFF93 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		FC552F3E2422526200FAFF93 /* TransformScaleViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TransformScaleViewController.h; sourceTree = "<group>"; };
+		FC552F3F2422526200FAFF93 /* TransformScaleViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TransformScaleViewController.m; sourceTree = "<group>"; };
+		FC552F412422527400FAFF93 /* TranslateCoordsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TranslateCoordsViewController.h; sourceTree = "<group>"; };
+		FC552F422422527400FAFF93 /* TranslateCoordsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TranslateCoordsViewController.m; sourceTree = "<group>"; };
+		FC552F44242252AF00FAFF93 /* CanvasDemoViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CanvasDemoViewController.h; sourceTree = "<group>"; };
+		FC552F45242252AF00FAFF93 /* CanvasDemoViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CanvasDemoViewController.m; sourceTree = "<group>"; };
+		FC552F47242252CE00FAFF93 /* CanvasView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CanvasView.m; sourceTree = "<group>"; };
+		FC552F48242252CE00FAFF93 /* CanvasView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CanvasView.h; sourceTree = "<group>"; };
+		FC552F4A242257AA00FAFF93 /* Sizes.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Sizes.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -68,6 +81,15 @@
 				FC552F2B2422510400FAFF93 /* ViewController.h */,
 				FC552F2C2422510400FAFF93 /* ViewController.m */,
 				FC552F2E2422510400FAFF93 /* Main.storyboard */,
+				FC552F4A242257AA00FAFF93 /* Sizes.h */,
+				FC552F3E2422526200FAFF93 /* TransformScaleViewController.h */,
+				FC552F3F2422526200FAFF93 /* TransformScaleViewController.m */,
+				FC552F412422527400FAFF93 /* TranslateCoordsViewController.h */,
+				FC552F422422527400FAFF93 /* TranslateCoordsViewController.m */,
+				FC552F44242252AF00FAFF93 /* CanvasDemoViewController.h */,
+				FC552F45242252AF00FAFF93 /* CanvasDemoViewController.m */,
+				FC552F48242252CE00FAFF93 /* CanvasView.h */,
+				FC552F47242252CE00FAFF93 /* CanvasView.m */,
 				FC552F312422510500FAFF93 /* Assets.xcassets */,
 				FC552F332422510500FAFF93 /* LaunchScreen.storyboard */,
 				FC552F362422510500FAFF93 /* Info.plist */,
@@ -146,9 +168,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FC552F402422526200FAFF93 /* TransformScaleViewController.m in Sources */,
 				FC552F2D2422510400FAFF93 /* ViewController.m in Sources */,
 				FC552F272422510400FAFF93 /* AppDelegate.m in Sources */,
+				FC552F46242252AF00FAFF93 /* CanvasDemoViewController.m in Sources */,
+				FC552F432422527400FAFF93 /* TranslateCoordsViewController.m in Sources */,
 				FC552F382422510500FAFF93 /* main.m in Sources */,
+				FC552F49242252CE00FAFF93 /* CanvasView.m in Sources */,
 				FC552F2A2422510400FAFF93 /* SceneDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
