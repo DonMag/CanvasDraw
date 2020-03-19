@@ -9,10 +9,10 @@
 #ifndef Sizes_h
 #define Sizes_h
 
-#define inputWidth 250.0
-#define inputHeight 350.0
+#define inputWidth 300.0
+#define inputHeight 400.0
 
-#define outputWidth 150.0
-#define outputHeight 280.0
+#define outputWidth 200.0
+#define outputHeight 300.0
 
 #endif /* Sizes_h */

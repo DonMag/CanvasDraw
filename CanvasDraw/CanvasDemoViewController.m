@@ -21,8 +21,10 @@
 
 - (void)viewDidLoad {
 	[super viewDidLoad];
+	
 	self.view.backgroundColor = [UIColor whiteColor];
 	
+	[self setupViews];
 }
 
 - (void)setupViews {
@@ -61,25 +63,10 @@
 		[self.outputView.centerXAnchor constraintEqualToAnchor:self.inputView.centerXAnchor],
 		
 		// constrain outputView Width, Height to same as inputView
-		[self.outputView.widthAnchor constraintEqualToConstant:inputWidth],
-		[self.outputView.heightAnchor constraintEqualToConstant:inputHeight],
+		[self.outputView.widthAnchor constraintEqualToConstant:outputWidth],
+		[self.outputView.heightAnchor constraintEqualToConstant:outputHeight],
 		
 	]];
-	
-	// calculate scaled size for outputView
-	CGFloat wScale = outputWidth / inputWidth;
-	CGFloat hScale = outputHeight / inputHeight;
-	
-	// CGAffineTransformScale scales from the center of the view (0.5,0.5)
-	// so calculate anchor point to keep the top at its original position
-	// if our views are not horizontally centered, we'd also need to calculate
-	// the xAnchor adjustment
-	CGFloat yAnchor = 0.5 / hScale;
-	[self.outputView.layer setAnchorPoint:CGPointMake(0.5, yAnchor)];
-	
-	// scale the outputView
-	CGAffineTransform t = CGAffineTransformScale(CGAffineTransformIdentity, wScale, hScale);
-	[self.outputView setTransform:t];
 	
 	// allow drawing on the inputView
 	[self.inputView enableDrawing:YES];
@@ -88,6 +75,7 @@
 	// (also sets the outputView as the notification receiver)
 	[self.outputView enableDrawing:NO];
 
+	// background colors so we can see the frames
 	self.inputView.backgroundColor = [UIColor cyanColor];
 	self.outputView.backgroundColor = [UIColor yellowColor];
 
