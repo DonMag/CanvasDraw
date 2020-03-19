@@ -35,55 +35,44 @@
 	CGContextSetLineWidth(context, 5);
 	CGContextSetLineCap(context, kCGLineCapButt);
 
-	if (_isDrawSelected) {
+	for (NSDictionary *pointdict in _pointArrays) {
 		
-		for (NSDictionary *pointdict in _pointArrays) {
-			if([pointdict[@"point"] isKindOfClass:[NSArray class]]){
-				UIColor *clo = (UIColor*)pointdict[@"color"];
-				CGContextSetStrokeColorWithColor(context, clo.CGColor);
-				[pointdict[@"point"] enumerateObjectsUsingBlock:^(id object, NSUInteger idx, BOOL *stop) {
-					CGPoint point = [object CGPointValue];
-					if(idx == 0){
-						CGContextMoveToPoint(context, point.x, point.y);
-					}else{
-						CGContextAddLineToPoint(context, point.x, point.y);
-					}
-				}];
-				CGContextStrokePath(context);
-			}
-		}
-
-	} else {
-
-		for (NSDictionary *pointdict in _pointArrays) {
-
-			CGSize sourceSize = [pointdict[@"size"] CGSizeValue];
-			CGFloat sourceWidth = sourceSize.width;
-			CGFloat sourceHeight = sourceSize.height;
-			CGFloat xScale = self.bounds.size.width / sourceWidth;
-			CGFloat yScale = self.bounds.size.height / sourceHeight;
-
-			CGContextSetLineWidth(context, 5.0 * MIN(xScale, yScale));
+		CGFloat xScale = 1.0;
+		CGFloat yScale = 1.0;
+		
+		CGSize sourceSize = [pointdict[@"size"] CGSizeValue];
+		
+		// if sourceSize == CGSizeZero, we are actively drawing
+		//	else, we were sent points (and a size) from "the other guy"
+		if (!CGSizeEqualToSize(sourceSize, CGSizeZero)) {
 			
-			if([pointdict[@"point"] isKindOfClass:[NSArray class]]){
-				[pointdict[@"point"] enumerateObjectsUsingBlock:^(id object, NSUInteger idx, BOOL *stop) {
-					CGPoint point = [object CGPointValue];
-					point.x *= xScale;
-					point.y *= yScale;
-					if(idx == 0){
-						CGContextMoveToPoint(context, point.x, point.y);
-					}else{
-						CGContextAddLineToPoint(context, point.x, point.y);
-					}
-				}];
-				CGContextStrokePath(context);
-			}
+			// calculate scaling based on selfSize : sourceSize
+			xScale = self.bounds.size.width / sourceSize.width;
+			yScale = self.bounds.size.height / sourceSize.height;
+		
+			// scale the lineWidth (if desired)
+			CGContextSetLineWidth(context, 5.0 * MIN(xScale, yScale));
 		}
-
+		
+		if([pointdict[@"point"] isKindOfClass:[NSArray class]]){
+			UIColor *clo = (UIColor*)pointdict[@"color"];
+			CGContextSetStrokeColorWithColor(context, clo.CGColor);
+			[pointdict[@"point"] enumerateObjectsUsingBlock:^(id object, NSUInteger idx, BOOL *stop) {
+				CGPoint point = [object CGPointValue];
+				point.x *= xScale;
+				point.y *= yScale;
+				if(idx == 0){
+					CGContextMoveToPoint(context, point.x, point.y);
+				}else{
+					CGContextAddLineToPoint(context, point.x, point.y);
+				}
+			}];
+			CGContextStrokePath(context);
+		}
 	}
 
+	return;
 }
-
 
 -(void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
 	UITouch *touch = [[event allTouches] anyObject];
